@@ -18,7 +18,7 @@
 require_once("DBConnector.php");
 
 define("SQL_SELECT_DRONES", <<<SQL_SELECT_DRONES
-        SELECT * FROM drones WHERE active = 1;
+        SELECT * FROM drone;
 SQL_SELECT_DRONES
 );
 
@@ -35,7 +35,7 @@ SQL_SELECT_DRONE_PILOT
 
 // bind param
 define("SQL_SHOW_COOR_BY_DRONE_ID", <<<SQL_SHOW_COOR_BY_DRONE_ID
-        SELECT drone_id, `time`, `lat`, `long` from coordination c WHERE c.drone_id = ? group by 1,2;
+        SELECT drone_id, `time`, `lat`, `long` from coordination WHERE drone_id = 2 group by 1,2;
 SQL_SHOW_COOR_BY_DRONE_ID
 );
 
