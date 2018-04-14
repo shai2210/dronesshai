@@ -6,17 +6,17 @@
  * Time: 21:09
  */
 //
-define("DB_HOST", "sql2.freemysqlhosting.net");
-define("DB_NAME", "sql2232091");
-define("DB_USER", "sql2232091");
-define("DB_PASS", "dM9%nT5%");
+//define("DB_HOST", "sql2.freemysqlhosting.net");
+//define("DB_NAME", "sql2232091");
+//define("DB_USER", "sql2232091");
+//define("DB_PASS", "dM9%nT5%");
 
 
-//
-//define("DB_HOST", "localhost");
-//define("DB_NAME", "mysql_drone");
-//define("DB_USER", "root");
-//define("DB_PASS", "");
+
+define("DB_HOST", "localhost");
+define("DB_NAME", "mysql_drone");
+define("DB_USER", "root");
+define("DB_PASS", "");
 
 function openCon(){
     $connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME)
@@ -39,7 +39,6 @@ var_dump($result);
     return $result;
 }
 
-echo 'heyyy';
 
 
 

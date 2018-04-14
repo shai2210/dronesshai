@@ -22,14 +22,13 @@ define("SQL_SELECT_DRONES", <<<SQL_SELECT_DRONES
 SQL_SELECT_DRONES
 );
 
-
 define("SQL_SELECT_PILOTS", <<<SQL_SELECT_PILOTS
         SELECT * FROM pilot;
 SQL_SELECT_PILOTS
 );
 
 define("SQL_SELECT_DRONE_PILOT", <<<SQL_SELECT_DRONE_PILOT
-        SELECT * FROM drone_pilot WHERE active = 1 AND deleted =0;
+        SELECT * FROM drone_pilot WHERE active = 1;
 SQL_SELECT_DRONE_PILOT
 );
 
@@ -39,3 +38,12 @@ define("SQL_SHOW_COOR_BY_DRONE_ID", <<<SQL_SHOW_COOR_BY_DRONE_ID
 SQL_SHOW_COOR_BY_DRONE_ID
 );
 
+define("SQL_SHOW_PHOTO", <<<SQL_SHOW_PHOTO
+SELECT p.url,p.`time` FROM photo p,coordination c WHERE p.drone_id = 1;
+SQL_SHOW_PHOTO
+);
+
+define("INSERT_PHOTO", <<<INSERT_PHOTO
+    INSERT INTO photo VALUES (?, ?, ?, ?);
+INSERT_PHOTO
+);

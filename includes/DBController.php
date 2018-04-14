@@ -6,7 +6,7 @@
  * Time: 21:48
  */
 
-//מקבל בקשה מאיזה לקוח שפוה לקונטרולר
+
 /* my DB
  * coordination drone_id , time , lat , long
  * drone id  , color  , active , deleted
@@ -18,40 +18,60 @@ require_once("queries.php");
 require_once("DBConnector.php");
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : false;
 
-// shai'.com?action=getall
 $value = isset($_REQUEST['value']) ? $_REQUEST['value'] : false;
-// shai'.com?action=getall&value=activedrones'
 $result = null;
 
-echo 'db controller' . $action;
+echo  $action;
 if(isset($action)){
     switch ($action) {
-        case ($action == 'getAll') :
-            echo 'in action';
-           $result = getAll(SQL_SELECT_DRONES);
-            break;
-        case ($action == 'getDroneById' && isset($value)) :
+        case ($action == 'getAllDrones') :
+           $result = getAllDrones(SQL_SELECT_DRONES);
+            echo $result;
 
-            $result = getById(SQL_SHOW_COOR_BY_DRONE_ID, $value);
-           echo  '>>>>>>' . $result . ' <<<<< ';
+            break;
+        case ($action == 'getDroneById') :
+
+            $result = getDroneById(SQL_SHOW_COOR_BY_DRONE_ID, $value);
+            echo $result;
+            break;
+        case ($action == 'getPhotoById' ) :
+
+            $result = getPhotoById(SQL_SHOW_PHOTO);
+            echo $result;
+
             break;
         }
 }
 
 
-function getAll($query){
+function getAllDrones($query){
   $res = query($query);
-    var_dump($res);
   return $res;
 }
 
 
-function getById($query, $id){
+function getDroneById($query){
     $connection = openCon();
     $stmt = $connection->prepare($query);
-    //$stmt->bind_param("i", $id);
     $result = $stmt->execute();
     closeCon($connection);
 
     return $result;
 }
+
+function getPhotoById($query){
+    $connection = openCon();
+    $stmt = $connection->prepare($query);
+    $result = $stmt->execute();
+    closeCon($connection);
+    return $result;
+}
+
+function insertPhoto($query,$time,$dorneId,$url){
+    $connection = openCon();
+    $stmt = $connection->prepare($query);
+    $result = $stmt->execute();
+    closeCon($connection);
+    return $result;
+}
+
