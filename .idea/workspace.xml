@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e50b39f4-edf1-482b-b71b-015cfa88c6c8" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/includes/DBConnector.php" afterPath="$PROJECT_DIR$/includes/DBConnector.php" />
-      <change beforePath="$PROJECT_DIR$/includes/DBController.php" afterPath="$PROJECT_DIR$/includes/DBController.php" />
-      <change beforePath="$PROJECT_DIR$/includes/queries.php" afterPath="$PROJECT_DIR$/includes/queries.php" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,8 +47,8 @@
       <file leaf-file-name="DBController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/includes/DBController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="74" column="19" lean-forward="false" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
+            <state relative-caret-position="156">
+              <caret line="53" column="8" lean-forward="false" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -171,7 +167,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
@@ -851,7 +847,7 @@
       <workItem from="1522786609973" duration="47665000" />
       <workItem from="1523473183625" duration="3652000" />
       <workItem from="1523477993791" duration="3621000" />
-      <workItem from="1523630258464" duration="8792000" />
+      <workItem from="1523630258464" duration="9010000" />
     </task>
     <task id="LOCAL-00001" summary="changes from 11-04">
       <created>1523479906645</created>
@@ -860,11 +856,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523479906645</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="changes from 14-04">
+      <created>1523730001553</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1523730001553</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70996000" />
+    <option name="totallyTimeSpent" value="71214000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="683" y="0" width="683" height="768" extended-state="0" />
@@ -911,7 +914,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="changes from 11-04" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes from 11-04" />
+    <MESSAGE value="changes from 14-04" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes from 14-04" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1150,8 +1154,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/DBController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="74" column="19" lean-forward="false" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
+        <state relative-caret-position="156">
+          <caret line="53" column="8" lean-forward="false" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
           <folding />
         </state>
       </provider>
