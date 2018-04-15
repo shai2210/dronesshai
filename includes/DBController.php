@@ -43,18 +43,27 @@ if(isset($action)){
 
         case "insertDrone" :
 
-            insertDrone(INSERT_DRONE,$droneId,$droneColor,$droneActive,$droneDel);
+            insertDrone(INSERT_DRONE,$id,$color,$active,$del);
 
             break;
+
+        case "insertPhoto" :
+            //* photo time , drone_id , url
+            insertPhoto(INSERT_PHOTO,$time,$drone_id,$url);
+            break;
+        case "getCoordination":
+            getCoordination(SQL_SHOW_COOR_PHOTO_BY_DRONE_ID,9);
+                break;
         }
 }
 
 
 function getAllDrones($query){
     $con = openCon();
-  $res = query($query);
-  return $res;
-  closeCon($con);
+    $res = query($query);
+    closeCon($con);
+    return $res;
+
 }
 
 
@@ -76,17 +85,53 @@ function getPhotoById($query){
 }
 
 //INSERT INTO drone(id,color,active,deleted)
-function insertDrone($query,$droneId,$droneColor,$droneActive,$droneDel){
+function insertDrone($query,$id,$color,$active,$del){
     $con = openCon();
     $stmt = $con->prepare($query);
-    $stmt->bind_param("isii",$id,$color,$active,$del);
-    $id=$droneId;
-    $color = (string)$droneColor;
-    $active = $droneActive;
-    $del = $droneDel;
+    $stmt->bind_param("isii",$currId,$currColor,$currActive,$currDel);
+    $currId=$id;
+    $currColor = (string)$color;
+    $currActive = $active;
+    $currDel = $del;
     $result = $stmt->execute();
     $stmt->close();
     closeCon($con);
-    return $result;
 }
 
+//INSERT INTO photo (time , drone_id , url)
+function insertPhoto($query,$time,$drone_id,$url){
+    $con = openCon();
+    $stmt = $con->prepare($query);
+    $stmt->bind_param("sis",$currTime,$currDrone , $curUrl);
+    $currTime=$time;
+    $currDrone = $drone_id;
+    $curUrl = $url;
+    $result = $stmt->execute();
+    $stmt->close();
+    closeCon($con);
+}
+
+//INSERT INTO coordination (drone_id , time , lat , long)
+function insertCoordination($query,$time,$drone_id,$lat,$long){
+    $con = openCon();
+    $stmt = $con->prepare($query);
+    $stmt->bind_param("iidd",$currDrone,$currTime, $curLat, $curLong);
+    $currTime=$time;
+    $currDrone = $drone_id;
+    $curLat = $lat;
+    $curLong = $long;
+    $result = $stmt->execute();
+    $stmt->close();
+    closeCon($con);
+}
+
+function getCoordination($query,$droneId){
+    $con = openCon();
+    $stmt = $con->prepare($query);
+    $stmt->bind_param("i",$currDrone);
+    $stmt->execute();
+    $stmt->fetch();
+    echo $currDrone;
+    $stmt->close();
+    closeCon($con);
+}

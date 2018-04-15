@@ -84,6 +84,6 @@ INSERT_COORDINATE
 
 // bind param returns all coordinates of chosen drone
 define("SQL_SHOW_COOR_PHOTO_BY_DRONE_ID", <<<SQL_SHOW_COOR_PHOTO_BY_DRONE_ID
-        SELECT drone_id, `time`, `lat`, `long` from coordination WHERE drone_id = 2 group by 1,2;
+        SELECT drone_id, `time`, `lat`, `long` from coordination WHERE drone_id = ?;
 SQL_SHOW_COOR_PHOTO_BY_DRONE_ID
 );
