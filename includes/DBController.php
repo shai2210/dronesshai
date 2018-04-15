@@ -24,20 +24,26 @@ $result = null;
 echo  $action;
 if(isset($action)){
     switch ($action) {
-        case ($action == 'getAllDrones') :
-           $result = getAllDrones(SQL_SELECT_DRONES);
+        case "getAllDrones" :
+
+                $result = getAllDrones(SQL_SELECT_DRONES);
+                echo $result;
+            break;
+        case "getDroneRouteById" :
+
+            $result = getDroneRouteById(SQL_SHOW_COOR_PHOTO_BY_DRONE_ID);
+            echo "res".$result;
+            break;
+        case "getPhotoById" :
+
+            $result = getPhotoById(PHOTO_BY_COORDINATE);
             echo $result;
 
             break;
-        case ($action == 'getDroneById') :
 
-            $result = getDroneById(SQL_SHOW_COOR_BY_DRONE_ID, $value);
-            echo $result;
-            break;
-        case ($action == 'getPhotoById' ) :
+        case "insertDrone" :
 
-            $result = getPhotoById(SQL_SHOW_PHOTO);
-            echo $result;
+            insertDrone(INSERT_DRONE,$droneId,$droneColor,$droneActive,$droneDel);
 
             break;
         }
@@ -45,12 +51,14 @@ if(isset($action)){
 
 
 function getAllDrones($query){
+    $con = openCon();
   $res = query($query);
   return $res;
+  closeCon($con);
 }
 
 
-function getDroneById($query){
+function getDroneRouteById($query){
     $connection = openCon();
     $stmt = $connection->prepare($query);
     $result = $stmt->execute();
@@ -67,11 +75,18 @@ function getPhotoById($query){
     return $result;
 }
 
-function insertPhoto($query,$time,$dorneId,$url){
-    $connection = openCon();
-    $stmt = $connection->prepare($query);
+//INSERT INTO drone(id,color,active,deleted)
+function insertDrone($query,$droneId,$droneColor,$droneActive,$droneDel){
+    $con = openCon();
+    $stmt = $con->prepare($query);
+    $stmt->bind_param("isii",$id,$color,$active,$del);
+    $id=$droneId;
+    $color = (string)$droneColor;
+    $active = $droneActive;
+    $del = $droneDel;
     $result = $stmt->execute();
-    closeCon($connection);
+    $stmt->close();
+    closeCon($con);
     return $result;
 }
 
