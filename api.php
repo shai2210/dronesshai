@@ -183,7 +183,7 @@ function insertToImage($id, $time, $image){
 function insertDrone($color){
     $connection = openCon();
 
-    $sql_drone = "INSERT INTO photo (`color`) VALUES ("."'".$color."'".")";
+    $sql_drone = "INSERT INTO drone (`color`) VALUES ("."'".$color."'".")";
 var_dump($sql_drone);
     if (mysqli_query($connection, $sql_drone)) {
         $result = true;
@@ -202,7 +202,7 @@ var_dump($sql_drone);
 function insertPilot($name){
     $connection = openCon();
 
-    $sql_pilot = "INSERT INTO photo (`name`) VALUES ("."'".$name."'".")";
+    $sql_pilot = "INSERT INTO pilot (`name`) VALUES ("."'".$name."'".")";
     var_dump($sql_pilot);
     if (mysqli_query($connection, $sql_pilot)) {
         $result = true;
