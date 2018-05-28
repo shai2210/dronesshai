@@ -7,8 +7,8 @@
  */
 
 
-$include_dir = DIRECTORY_SEPARATOR . 'includes' .DIRECTORY_SEPARATOR;
-require_once($include_dir . 'DBConnector.php');
+
+
 /*
  * index to read from connector
  * image uploader query
@@ -23,25 +23,4 @@ require_once($include_dir . 'DBConnector.php');
 
 
 
-
-
-
-
-/***
- * api-pilot.php
- * $_GET
- * QUERY - ?action=
- * actions:
- * &getAllDrones=true all drones ids coors times
- * &getById=drone_id - returns drone id, coors, pics , time
- *
- * insert-drone.php
- * $_GET
- * QUERY - ?action=
- * actions:
- * &insertById=true&Id=id&Lat=lat&Long=long&Time=time&Image=url
- *
- */
-
-
-echo 'test 2';
+echo 'test 3';
