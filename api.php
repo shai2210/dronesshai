@@ -41,6 +41,8 @@ $id = isset($_REQUEST['id']) && is_numeric($_REQUEST['id']) ? $_REQUEST['id'] : 
 $lat = isset($_REQUEST['lat']) && is_numeric($_REQUEST['lat']) ? $_REQUEST['lat'] : false;
 $long = isset($_REQUEST['long']) && is_numeric($_REQUEST['long']) ? $_REQUEST['long'] : false;
 $image = isset($_REQUEST['image']) && $_REQUEST['image'] ? $_REQUEST['image'] : null;
+$name = isset($_REQUEST['name']) && $_REQUEST['name'] ? $_REQUEST['name'] : null;
+$color = isset($_REQUEST['color']) && $_REQUEST['color'] ? $_REQUEST['color'] : null;
 
 $result = null;
 
@@ -55,6 +57,22 @@ if($action) {
             }
 
             break;
+        case 'insertDrone':
+            if(isset($color)){
+                insertDrone($color);
+            }else {
+                echo 'missing color';
+            }
+            break;
+
+        case 'insertPilot':
+            if(isset($name)){
+                insertPilot($name);
+            }else {
+                echo 'missing name';
+            }
+
+            break;
         default:
         case 'getAllDrones':
         getAllDrones();
@@ -62,6 +80,9 @@ if($action) {
     }
 }
 
+/**
+ *
+ */
 function getAllDrones(){
 
     $connection = openCon();
@@ -92,6 +113,12 @@ function getAllDrones(){
 
 }
 
+/**
+ * @param $id
+ * @param $lat
+ * @param $long
+ * @param null $image
+ */
 function insertById($id,$lat,$long, $image = null){
 
     $time = time();
@@ -111,6 +138,13 @@ function insertById($id,$lat,$long, $image = null){
     echo json_encode($response);
 }
 
+/**
+ * @param $id
+ * @param $lat
+ * @param $long
+ * @param $time
+ * @return bool
+ */
 function insertToCoor($id,$lat,$long,$time){
     $connection = openCon();
     $sql_coordination = "INSERT INTO coordination (`drone_id`, `time`, `lat`, `long`) VALUES (".$id. ","."'".$time."'". ",".$lat."," .$long.")";
@@ -123,7 +157,12 @@ function insertToCoor($id,$lat,$long,$time){
     return $response;
 }
 
-
+/**
+ * @param $id
+ * @param $time
+ * @param $image
+ * @return bool
+ */
 function insertToImage($id, $time, $image){
     $connection = openCon();
 
@@ -136,3 +175,41 @@ function insertToImage($id, $time, $image){
     }
     return $response;
 }
+
+/**
+ * @param $color
+ * @return array
+ */
+function insertDrone($color){
+    $connection = openCon();
+
+    $sql_drone = "INSERT INTO photo (`color`) VALUES ("."'".$color."'".")";
+
+    if (mysqli_query($connection, $sql_drone)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $response[] = [
+        'success' => $result
+    ];
+}
+
+
+
+function insertPilot($name){
+    $connection = openCon();
+
+    $sql_pilot = "INSERT INTO photo (`name`) VALUES ("."'".$name."'".")";
+
+    if (mysqli_query($connection, $sql_pilot)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $response[] = [
+        'success' => $result
+    ];
+
+}
+
