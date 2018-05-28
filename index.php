@@ -42,3 +42,6 @@ require_once($include_dir . 'DBConnector.php');
  * &insertById=true&Id=id&Lat=lat&Long=long&Time=time&Image=url
  *
  */
+
+
+echo 'test';
