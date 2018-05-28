@@ -44,4 +44,4 @@ require_once($include_dir . 'DBConnector.php');
  */
 
 
-echo 'test';
+echo 'test 2';
