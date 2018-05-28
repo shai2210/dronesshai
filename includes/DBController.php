@@ -6,6 +6,7 @@
  * Time: 21:48
  */
 
+header('Content-type: application/json');
 
 /* my DB
  * coordination drone_id , time , lat , long
@@ -21,117 +22,128 @@ $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : false;
 $value = isset($_REQUEST['value']) ? $_REQUEST['value'] : false;
 $result = null;
 
-echo  $action;
-if(isset($action)){
-    switch ($action) {
-        case "getAllDrones" :
-
-                $result = getAllDrones(SQL_SELECT_DRONES);
-                echo $result;
-            break;
-        case "getDroneRouteById" :
-
-            $result = getDroneRouteById(SQL_SHOW_COOR_PHOTO_BY_DRONE_ID);
-            echo "res".$result;
-            break;
-        case "getPhotoById" :
-
-            $result = getPhotoById(PHOTO_BY_COORDINATE);
-            echo $result;
+if($action) {
+    switch ($action){
+        case 'getById':
+            if(isset($id)) {
+                $response = getDroneById();
+            }
+            else {
+                echo 'missing params action or id' . PHP_EOL;
+            }
 
             break;
-
-        case "insertDrone" :
-
-            insertDrone(INSERT_DRONE,$id,$color,$active,$del);
-
+        default:
+        case 'getAllDrones':
+            $response = getAllDrones();
             break;
-
-        case "insertPhoto" :
-            //* photo time , drone_id , url
-            insertPhoto(INSERT_PHOTO,$time,$drone_id,$url);
-            break;
-        case "getCoordination":
-            getCoordination(SQL_SHOW_COOR_PHOTO_BY_DRONE_ID,9);
-                break;
-        }
+    }
 }
 
+function getAllDrones(){
 
-function getAllDrones($query){
-    $con = openCon();
-    $res = query($query);
-    closeCon($con);
-    return $res;
-
-}
-
-
-function getDroneRouteById($query){
     $connection = openCon();
-    $stmt = $connection->prepare($query);
-    $result = $stmt->execute();
-    closeCon($connection);
 
-    return $result;
+    $result = $connection->query(SQL_SELECT_DRONES);
+    $records = [];
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+
+        while($row = $result->fetch_assoc()) {
+            $records[] = [
+                'id' => $row['id'],
+                'color' => $row['color']
+            ];        }
+    } else {
+        echo "0 results";
+    }
+
+
+    //var_dump($records);
+    echo json_encode($records);
+    //return $records;
+
 }
 
-function getPhotoById($query){
-    $connection = openCon();
-    $stmt = $connection->prepare($query);
-    $result = $stmt->execute();
-    closeCon($connection);
-    return $result;
-}
-
-//INSERT INTO drone(id,color,active,deleted)
-function insertDrone($query,$id,$color,$active,$del){
-    $con = openCon();
-    $stmt = $con->prepare($query);
-    $stmt->bind_param("isii",$currId,$currColor,$currActive,$currDel);
-    $currId=$id;
-    $currColor = (string)$color;
-    $currActive = $active;
-    $currDel = $del;
-    $result = $stmt->execute();
-    $stmt->close();
-    closeCon($con);
-}
-
-//INSERT INTO photo (time , drone_id , url)
-function insertPhoto($query,$time,$drone_id,$url){
-    $con = openCon();
-    $stmt = $con->prepare($query);
-    $stmt->bind_param("sis",$currTime,$currDrone , $curUrl);
-    $currTime=$time;
-    $currDrone = $drone_id;
-    $curUrl = $url;
-    $result = $stmt->execute();
-    $stmt->close();
-    closeCon($con);
-}
-
-//INSERT INTO coordination (drone_id , time , lat , long)
-function insertCoordination($query,$time,$drone_id,$lat,$long){
-    $con = openCon();
-    $stmt = $con->prepare($query);
-    $stmt->bind_param("iidd",$currDrone,$currTime, $curLat, $curLong);
-    $currTime=$time;
-    $currDrone = $drone_id;
-    $curLat = $lat;
-    $curLong = $long;
-    $result = $stmt->execute();
-    $stmt->close();
-    closeCon($con);
-}
-
-function getCoordination($query,$droneId){
-    $con = openCon();
-    $stmt = $con->prepare($query);
-    $stmt->bind_param("i",$currDrone);
-    $stmt->execute();
-    $stmt->fetch();
-    echo $currDrone;
-    $stmt->close();
-    closeCon($con);
-}
+//
+//function getDroneRouteById($query){
+//    $connection = openCon();
+//    $stmt = $connection->prepare($query);
+//    $result = $stmt->execute();
+//    closeCon($connection);
+//
+//    return $result;
+//}
+//
+//function getPhotoById($query){
+//    $connection = openCon();
+//    $stmt = $connection->prepare($query);
+//    $result = $stmt->execute();
+//    closeCon($connection);
+//    return $result;
+//}
+//
+////INSERT INTO drone(id,color,active,deleted)
+//function insertDrone($query,$id,$color,$active,$del){
+//    $con = openCon();
+//    $stmt = $con->prepare($query);
+//    $stmt->bind_param("isii",$currId,$currColor,$currActive,$currDel);
+//    $currId=$id;
+//    $currColor = (string)$color;
+//    $currActive = $active;
+//    $currDel = $del;
+//    $result = $stmt->execute();
+//    $stmt->close();
+//    closeCon($con);
+//}
+//
+////INSERT INTO photo (time , drone_id , url)
+//function insertPhoto($query,$time,$drone_id,$url){
+//    $con = openCon();
+//    $stmt = $con->prepare($query);
+//    $stmt->bind_param("sis",$currTime,$currDrone , $curUrl);
+//    $currTime=$time;
+//    $currDrone = $drone_id;
+//    $curUrl = $url;
+//    $result = $stmt->execute();
+//    $stmt->close();
+//    closeCon($con);
+//}
+//
+////INSERT INTO coordination (drone_id , time , lat , long)
+//function insertCoordination($query,$time,$drone_id,$lat,$long){
+//    $con = openCon();
+//    $stmt = $con->prepare($query);
+//    $stmt->bind_param("iidd",$currDrone,$currTime, $curLat, $curLong);
+//    $currTime=$time;
+//    $currDrone = $drone_id;
+//    $curLat = $lat;
+//    $curLong = $long;
+//    $result = $stmt->execute();
+//    $stmt->close();
+//    closeCon($con);
+//}
+//
+//function getCoordination($query,$droneId){
+//    $con = openCon();
+//    $stmt = $con->prepare($query);
+//    $stmt->bind_param("i",$currDrone);
+//    $stmt->execute();
+//    $stmt->fetch();
+//    echo $currDrone;
+//    $stmt->close();
+//    closeCon($con);
+//}
+//
+//
+//function getDroneById($drone_id) {
+//    $con = openCon();
+//    $stmt = $con->prepare($query);
+//    $stmt->bind_param("i",$currDrone);
+//    $stmt->execute();
+//    $stmt->fetch();
+//    echo $currDrone;
+//    $stmt->close();
+//    closeCon($con);
+//}

@@ -7,7 +7,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/manager.html" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/pilot.html" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/redources/config.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/DBConnector.php" afterPath="$PROJECT_DIR$/includes/DBConnector.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/DBController.php" afterPath="$PROJECT_DIR$/includes/DBController.php" />
@@ -78,24 +77,14 @@
       <file leaf-file-name="api.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            <state relative-caret-position="312">
+              <caret line="133" column="26" selection-start-line="133" selection-start-column="26" selection-end-line="133" selection-end-column="26" />
               <folding>
-                <marker date="1527496326000" expanded="true" signature="2253:2322" ph="INSERT INTO coordination... " />
-                <marker date="1527496326000" expanded="true" signature="2253:2329" ph="INSERT INTO coordination... " />
-                <marker date="1527496326000" expanded="true" signature="2253:2331" ph="INSERT INTO coordination... " />
-                <marker date="1527496326000" expanded="true" signature="2253:2332" ph="INSERT INTO coordination... " />
-                <marker date="1527496326000" expanded="true" signature="2253:2333" ph="INSERT INTO coordination... " />
-                <marker date="1527496326000" expanded="true" signature="2253:2334" ph="INSERT INTO coordination... " />
-                <marker date="1527496326000" expanded="true" signature="2253:2342" ph="INSERT INTO coordination... " />
-                <marker date="1527496326000" expanded="true" signature="2253:2343" ph="INSERT INTO coordination... " />
-                <marker date="1527496326000" expanded="true" signature="2253:2350" ph="INSERT INTO coordination... " />
-                <marker date="1527496326000" expanded="true" signature="2253:2357" ph="INSERT INTO coordination... " />
-                <marker date="1527496326000" expanded="true" signature="2253:2359" ph="INSERT INTO coordination... " />
-                <marker date="1527496326000" expanded="true" signature="2253:2370" ph="INSERT INTO coordination... " />
-                <marker date="1527496326000" expanded="true" signature="2253:2371" ph="INSERT INTO coordination... " />
-                <marker date="1527496326000" expanded="true" signature="2253:2570" ph="INSERT INTO coordination... " />
-                <marker date="1527496326000" expanded="true" signature="2391:2484" ph="INSERT INTO photo... " />
+                <element signature="e#7#239#0#PHP" expanded="true" />
+                <marker date="1527499289000" expanded="true" signature="2613:2730" ph="INSERT INTO coordination... " />
+                <marker date="1527499289000" expanded="true" signature="2980:3062" ph="INSERT INTO photo... " />
+                <marker date="1527499289000" expanded="true" signature="2980:3081" ph="INSERT INTO photo... " />
+                <marker date="1527499289000" expanded="true" signature="3079:3081" ph="INSERT INTO coordination... " />
               </folding>
             </state>
           </provider>
@@ -171,8 +160,8 @@
         <option value="$PROJECT_DIR$/includes/DBConnector.php" />
         <option value="$PROJECT_DIR$/includes/DBController.php" />
         <option value="$PROJECT_DIR$/api-pilot.php" />
-        <option value="$PROJECT_DIR$/api.php" />
         <option value="$PROJECT_DIR$/includes/queries.php" />
+        <option value="$PROJECT_DIR$/api.php" />
       </list>
     </option>
   </component>
@@ -982,7 +971,7 @@
       <workItem from="1523786504570" duration="14640000" />
       <workItem from="1525718364984" duration="2384000" />
       <workItem from="1526733894310" duration="3589000" />
-      <workItem from="1527213756259" duration="16757000" />
+      <workItem from="1527213756259" duration="20504000" />
     </task>
     <task id="LOCAL-00001" summary="changes from 11-04">
       <created>1523479906645</created>
@@ -1019,11 +1008,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523810513306</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="cleaning project">
+      <created>1527496664138</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1527496664138</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109412000" />
+    <option name="totallyTimeSpent" value="113159000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1436" height="877" extended-state="6" />
@@ -1038,7 +1034,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16857962" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16857962" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3299363" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1072,7 +1068,8 @@
     <MESSAGE value="changes from 11-04" />
     <MESSAGE value="changes from 14-04" />
     <MESSAGE value="changes from 15-04" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes from 15-04" />
+    <MESSAGE value="cleaning project" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaning project" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1422,24 +1419,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        <state relative-caret-position="312">
+          <caret line="133" column="26" selection-start-line="133" selection-start-column="26" selection-end-line="133" selection-end-column="26" />
           <folding>
-            <marker date="1527496326000" expanded="true" signature="2253:2322" ph="INSERT INTO coordination... " />
-            <marker date="1527496326000" expanded="true" signature="2253:2329" ph="INSERT INTO coordination... " />
-            <marker date="1527496326000" expanded="true" signature="2253:2331" ph="INSERT INTO coordination... " />
-            <marker date="1527496326000" expanded="true" signature="2253:2332" ph="INSERT INTO coordination... " />
-            <marker date="1527496326000" expanded="true" signature="2253:2333" ph="INSERT INTO coordination... " />
-            <marker date="1527496326000" expanded="true" signature="2253:2334" ph="INSERT INTO coordination... " />
-            <marker date="1527496326000" expanded="true" signature="2253:2342" ph="INSERT INTO coordination... " />
-            <marker date="1527496326000" expanded="true" signature="2253:2343" ph="INSERT INTO coordination... " />
-            <marker date="1527496326000" expanded="true" signature="2253:2350" ph="INSERT INTO coordination... " />
-            <marker date="1527496326000" expanded="true" signature="2253:2357" ph="INSERT INTO coordination... " />
-            <marker date="1527496326000" expanded="true" signature="2253:2359" ph="INSERT INTO coordination... " />
-            <marker date="1527496326000" expanded="true" signature="2253:2370" ph="INSERT INTO coordination... " />
-            <marker date="1527496326000" expanded="true" signature="2253:2371" ph="INSERT INTO coordination... " />
-            <marker date="1527496326000" expanded="true" signature="2253:2570" ph="INSERT INTO coordination... " />
-            <marker date="1527496326000" expanded="true" signature="2391:2484" ph="INSERT INTO photo... " />
+            <element signature="e#7#239#0#PHP" expanded="true" />
+            <marker date="1527499289000" expanded="true" signature="2613:2730" ph="INSERT INTO coordination... " />
+            <marker date="1527499289000" expanded="true" signature="2980:3062" ph="INSERT INTO photo... " />
+            <marker date="1527499289000" expanded="true" signature="2980:3081" ph="INSERT INTO photo... " />
+            <marker date="1527499289000" expanded="true" signature="3079:3081" ph="INSERT INTO coordination... " />
           </folding>
         </state>
       </provider>
