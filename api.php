@@ -78,7 +78,8 @@ function getAllDrones(){
             $records[$row['drone_id']]['data'][] = [
                     "time" => $row['time'],
                     "lat" => $row['lat'],
-                    "long" => $row['long']
+                    "long" => $row['long'],
+                    "image" => $row['url']
             ];
             $records[$row['drone_id']]['color'] = $row['color'];
         }
