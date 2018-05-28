@@ -184,15 +184,17 @@ function insertDrone($color){
     $connection = openCon();
 
     $sql_drone = "INSERT INTO photo (`color`) VALUES ("."'".$color."'".")";
-
+var_dump($sql_drone);
     if (mysqli_query($connection, $sql_drone)) {
         $result = true;
     } else {
         $result = false;
     }
-    return $response[] = [
+    $response[] = [
         'success' => $result
     ];
+
+    echo json_encode($response);
 }
 
 
@@ -201,15 +203,15 @@ function insertPilot($name){
     $connection = openCon();
 
     $sql_pilot = "INSERT INTO photo (`name`) VALUES ("."'".$name."'".")";
-
+    var_dump($sql_pilot);
     if (mysqli_query($connection, $sql_pilot)) {
         $result = true;
     } else {
         $result = false;
     }
-    return $response[] = [
+    $response[] = [
         'success' => $result
     ];
-
+    echo json_encode($response);
 }
 
