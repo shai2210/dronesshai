@@ -75,13 +75,13 @@ function getAllDrones(){
 
         while($row = $result->fetch_assoc()) {
 
-            $records[$row['drone_id']]['data'][] = [
+            $records['records'][$row['drone_id']]['data'][] = [
                     "time" => $row['time'],
                     "lat" => $row['lat'],
                     "long" => $row['long'],
                     "image" => $row['url']
             ];
-            $records[$row['drone_id']]['color'] = $row['color'];
+            $records['records'][$row['drone_id']]['color'] = $row['color'];
         }
     } else {
         echo "0 results";
