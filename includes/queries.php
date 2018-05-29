@@ -43,8 +43,6 @@ FROM drone dr
   LEFT JOIN photo ph ON coor.time = ph.time
 WHERE dr.active = 1
 AND   deleted = 0
-ORDER BY 1;
-
-
+ORDER BY 1,3 ASC;
 SQL_SELECT_DRONES_DATA
 );
