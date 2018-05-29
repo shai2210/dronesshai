@@ -23,6 +23,7 @@
  * Time: 21:48
  */
 header('Content-type: application/json');
+header('Access-Control-Allow-Origin: *');
 
 /* my DB
  * coordination drone_id , time , lat , long
@@ -184,7 +185,6 @@ function insertDrone($color){
     $connection = openCon();
 
     $sql_drone = "INSERT INTO drone (`color`) VALUES ("."'".$color."'".")";
-var_dump($sql_drone);
     if (mysqli_query($connection, $sql_drone)) {
         $result = true;
     } else {
@@ -203,7 +203,6 @@ function insertPilot($name){
     $connection = openCon();
 
     $sql_pilot = "INSERT INTO pilot (`name`) VALUES ("."'".$name."'".")";
-    var_dump($sql_pilot);
     if (mysqli_query($connection, $sql_pilot)) {
         $result = true;
     } else {
