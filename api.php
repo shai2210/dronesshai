@@ -42,6 +42,7 @@ $image = isset($_REQUEST['image']) && $_REQUEST['image'] ? $_REQUEST['image'] : 
 $name = isset($_REQUEST['name']) && $_REQUEST['name'] ? $_REQUEST['name'] : null;
 $color = isset($_REQUEST['color']) && $_REQUEST['color'] ? $_REQUEST['color'] : null;
 $time = isset($_REQUEST['time']) && $_REQUEST['time'] ? $_REQUEST['time'] : null;
+$lastTime = isset($_REQUEST['lastTs']) && $_REQUEST['lastTs'] ? $_REQUEST['lastTs'] : null;
 $result = null;
 
 
@@ -74,7 +75,7 @@ if($action) {
             break;
         default:
         case 'getAllDrones':
-            getAllDrones();
+            getAllDrones($lastTime);
             break;
     }
 }
@@ -82,11 +83,24 @@ if($action) {
 /**
  *returns all drones in JSON object
  */
-function getAllDrones(){
+function getAllDrones($lastTimeStamp){
 
     $connection = openCon();
+    $lastTimeStamp = date("Y-m-d h:m:s",$lastTimeStamp);
+    $query = "SELECT coor.drone_id,
+	    dr.color,
+       coor.time,
+       coor.lat,
+       coor.long,
+       ph.url
+FROM drone dr
+  JOIN coordination AS coor ON dr.id = coor.drone_id
+  LEFT JOIN photo ph ON coor.time = ph.time
+WHERE dr.active = 1
+AND   deleted = 0
+AND   coor.time >='". $lastTimeStamp ."'ORDER BY 1,3 ASC";
 
-    $result = $connection->query(SQL_SELECT_DRONES_DATA);
+    $result = $connection->query($query);
     $records = [
         "timestamp" => time()
     ];
