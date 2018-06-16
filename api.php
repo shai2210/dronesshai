@@ -48,8 +48,8 @@ $result = null;
 if($action) {
     switch ($action){
         case 'insertById':
-            if(isset($id,$lat,$long,$time)) {
-                insertById($id,$lat,$long,$time, $image);
+            if(isset($id,$lat,$long)) {
+                insertById($id,$lat,$long, $image);
             }
             else {
                 echo 'missing params action or id' . PHP_EOL;
@@ -116,10 +116,10 @@ function getAllDrones(){
  * @param $time
  * @param null $image
  */
-function insertById($id,$lat,$long,$time , $image = null){
+function insertById($id,$lat,$long, $image = null){
 
-
-    //$time = date("Y-m-d h:m:s",$time);
+    $time = time();
+    $time = date("Y-m-d h:m:s",$time);
     $trueCounter = 0;
 
     $trueCounter += is_null($image) ? 1 : insertToImage($id,$time, $image) ? 1 : 0;
