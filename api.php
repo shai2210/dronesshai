@@ -118,7 +118,7 @@ AND   coor.time >='". $lastTimeStamp ."'ORDER BY 1,3 ASC";
             $records['records'][$row['drone_id']]['color'] = $row['color'];
         }
     } else {
-        echo "0 results";
+        $records['records'] = [];
     }
     echo json_encode($records);
 }
