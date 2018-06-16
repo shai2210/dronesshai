@@ -119,7 +119,7 @@ function getAllDrones(){
 function insertById($id,$lat,$long,$time , $image = null){
 
 
-    $time = date("Y-m-d h:m:s",$time);
+    //$time = date("Y-m-d h:m:s",$time);
     $trueCounter = 0;
 
     $trueCounter += is_null($image) ? 1 : insertToImage($id,$time, $image) ? 1 : 0;
