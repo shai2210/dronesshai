@@ -7,10 +7,10 @@
  */
 
 
-define("DB_HOST", "dronedb.cbo8uovs9hka.us-east-1.rds.amazonaws.com");
-define("DB_NAME", "dronedb");
+define("DB_HOST", "dronedbs.c3tooairpuvo.us-east-1.rds.amazonaws.com");
+define("DB_NAME", "dronedbs");
 define("DB_USER", "root");
-define("DB_PASS", "shaimalka85");
+define("DB_PASS", "shai12345");
 
 function openCon(){
     $connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME)
