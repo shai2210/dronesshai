@@ -7,8 +7,8 @@
  */
 
 
-define("DB_HOST", "dronedbs.c3tooairpuvo.us-east-1.rds.amazonaws.com");
-define("DB_NAME", "dronedbs");
+define("DB_HOST", "drones.c3tooairpuvo.us-east-1.rds.amazonaws.com");
+define("DB_NAME", "drones");
 define("DB_USER", "root");
 define("DB_PASS", "shai12345");
 
